@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 
 const app = express()
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
 const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ 
