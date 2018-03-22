@@ -1,0 +1,26 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th>Article Title</th>
+      <th>save</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each articles}}
+    <tr>
+      <th scope="row">{{math @index "+" 1}}</th>
+      
+      <td>
+        <a href="{{ this.link }}" target="_blank">{{ this.title }}</a>
+      </td>
+      <td>
+        <button data-title="{{ this.title }}" data-link="{{ this.link }}" class="btn btn-sm btn-danger float-right save-btn">Save article</button>
+      </td>
+      
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
