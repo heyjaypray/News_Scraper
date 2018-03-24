@@ -18,9 +18,11 @@ router.post('/', (req, res, next) => {
       res.json(err)
     })
     res.send('Done!')
+    console.log(req)
 })
 
 router.get('/', (req, res, next) => {
+
   db.Saved.find({})
     .then(dbSaved => {
       res.render('home', { articles: dbSaved, saved: true })
@@ -41,15 +43,15 @@ router.delete('/', (req, res, next) => {
     })
 })
 
-router.get('/', (req, res, next) => {
-  db.Saved.findOne({ _id: req.body.id })
-    .populate('note')
-    .then(dbSaved => {
-      res.send(dbSaved)
-    })
-    .catch(err => {
-      res.json(err)
-    })
-})
+// router.get('/', (req, res, next) => {
+//   db.Saved.findOne({ _id: req.body.id })
+//     .populate('note')
+//     .then(dbSaved => {
+//       res.send(dbSaved)
+//     })
+//     .catch(err => {
+//       res.json(err)
+//     })
+// })
 
 module.exports = router
